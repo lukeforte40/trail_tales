@@ -1,0 +1,93 @@
+nav{
+    #upperNav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 98vw;
+        margin: 0 1vw;
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        #logo{
+            text-decoration: none;
+            color: black;
+            font-size: 2em;
+            width: fit-content;
+        }
+
+        #loginSignupContainer{
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+    
+            a{
+                text-decoration: none;
+                color: black;
+                padding: 5px 10px;
+                background-color: lightgray;
+                border-radius: 10px;
+                margin-left: 5px;
+    
+                &:hover{
+                    background-color: gray;
+                }
+            }
+        }
+    }
+
+    #lowerNav{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .hamburger{
+            cursor: pointer;
+            font-size: 1.75em;
+            font-weight: 700;
+        }
+    
+        .navLinks{
+            display: none;
+            flex-direction: column;
+            border: 1px solid black;
+            margin-top: 10px;
+            border-radius: 10px;
+
+            a{
+                text-decoration: none;
+                color: black;
+                font-size: 1.15em;
+                padding: 10px;
+                border-radius: 10px;
+                margin: 10px;
+
+                &:hover{
+                    background-color: lightgrey;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    #lowerNav{
+        .hamburger{
+            display: none;
+        }
+        .navLinks{
+            display: flex !important;
+            flex-direction: row !important;
+            border: none !important;
+            margin: 0 !important;
+            border-radius: 0;
+
+            a{
+                margin: 0 10px !important; 
+                padding: 5px 10px !important;
+            }
+        }
+    }
+}
