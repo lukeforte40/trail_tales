@@ -1,10 +1,14 @@
 import { NavLink } from "react-router"
+import React from "react";
 import styles from "../styles/components/nav.module.scss"
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useLocation } from 'react-router-dom';
+import { userContext } from '../main';
+import authService from "../services/auth.service";
 
 export default function Nav() {
     const location = useLocation();
+    const { user, setUser } = React.useContext(userContext);
     
     // Rotate hamburger and open nav menu
     const handleHamburgerClick = () => {
@@ -18,13 +22,20 @@ export default function Nav() {
         }
     }
 
+    // handle logout
+    const handleLogout = () => {
+        authService.logout()
+        setUser(undefined);
+    }
+    
     return(
         <nav>
             <div id={styles.upperNav}>
                 <NavLink id={styles.logo} to="/">Trail Tales</NavLink>
                 <div id={styles.loginSignupContainer}>
-                    {location.pathname !== "/login" && <NavLink to="/login">Login</NavLink>}
-                    {location.pathname !== "/signup" && <NavLink to="/signup">Sign Up</NavLink>}
+                    {user === undefined && location.pathname !== "/login" && <NavLink to="/login">Login</NavLink>}
+                    {user === undefined && location.pathname !== "/signup" && <NavLink to="/signup">Sign Up</NavLink>}
+                    {user !== undefined && <p onClick={() => handleLogout()}>Logout</p>}
                 </div>
             </div>
             <div id={styles.lowerNav}>

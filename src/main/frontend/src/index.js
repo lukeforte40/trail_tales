@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './test/reportWebVitals';
-import { BrowserRouter } from 'react-router';
-import Routing from "./Routing";
-import Nav from "./components/Nav";
 import "./styles/main.scss";
+import Main from './main';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Nav/>
-    <Routing />
-  </BrowserRouter>
+  <Main/>
 );
 
 // If you want to start measuring performance in your app, pass a function

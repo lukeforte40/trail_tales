@@ -31,12 +31,13 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * set up profile pic upload
 * externalize application.properties
 * add default profile picture, to signup.
-* (done) fix signup backend
+* (Done) fix signup backend
 * error handling login/signup
-* login on signup
+* (Done) login on signup
 * recaptcha
 * sign up with google
-* set nav to reflect login status
+* (Done) set nav to reflect login status
+* (Done) set user to context in parent of nav to pass across site
 * set up profile menus and settings page
 
 **Tech Stack**

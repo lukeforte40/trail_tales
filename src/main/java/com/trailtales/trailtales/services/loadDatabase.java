@@ -1,5 +1,8 @@
 package com.trailtales.trailtales.services;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +26,17 @@ class LoadDatabase {
   private PasswordEncoder passwordEncoder;
 
   @Bean
-  CommandLineRunner initDatabase(user_repo repository, RoleRepository role_repo) {
+  CommandLineRunner initDatabase(user_repo repository, RoleRepository role_repo ) {
 
     return args -> {
+      Role admin = new Role(ERole.ROLE_ADMIN);
       log.info("Preloading" + role_repo.save(new Role(ERole.ROLE_USER)));
-      log.info("Preloading" + role_repo.save(new Role(ERole.ROLE_ADMIN)));
-      log.info("Preloading " + repository.save(new User("admin", "1111111111", "null", passwordEncoder.encode("password"))));
+      log.info("Preloading" + role_repo.save(admin));
+      User userInf = new User("admin", "1111111111", "null", passwordEncoder.encode("password"));
+      Set<Role> tempSet = new HashSet<Role>();
+      tempSet.add(admin);
+      userInf.setRoles(tempSet);
+      log.info("Preloading " + repository.save(userInf));
     };
   }
 }

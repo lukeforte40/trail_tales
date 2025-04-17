@@ -1,6 +1,8 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import authService from "../services/auth.service";
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../main';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Signup(){
     const [email, setEmail] = useState("");
@@ -8,11 +10,14 @@ export default function Signup(){
     const [phone, setPhone] = useState("");
     const [picture, setPicture] = useState(undefined);
     const navigate = useNavigate();
+    const { user, setUser } = React.useContext(userContext);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async () =>{
-        await authService.register(email, phone, picture === undefined ? "null" : picture.name, password).then(
-            navigate('/')
-        );
+        setLoading(true);
+        const userData = await authService.register(email, phone, picture === undefined ? "null" : picture.name, password);
+        setUser(userData);        
+        navigate('/')
     }
 
     return(
@@ -27,7 +32,10 @@ export default function Signup(){
                 <input type="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                 <label>Profile Pic</label>
                 <input type="file" value={picture} onChange={(e) => setPicture(e.target.files[0])}/>
-                <button type="button" onClick={() => handleSubmit()}>Sign up</button>
+                <ReCAPTCHA
+                    sitekey="6Lf-OhwrAAAAAFq6NjWY9GfRJ-ugFfCokGSHrMnF"
+                />
+                <button type="button" onClick={() => handleSubmit()}>{loading ? "Loading..." : "Sign up"}</button>
             </form>
         </div>
     )

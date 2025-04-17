@@ -23,13 +23,17 @@ class AuthService {
   }
 
   async register(username, phone, profilePic, password) {
-     await axios.post(API_URL + "signup", {
+     return await axios.post(API_URL + "signup", {
       username,
       phone,
       profilePic,
       password
-    });
-    this.login(username,password);
+    })
+    .then(response => {
+      if (response.data.accessToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+      return response.data;})
   }
 
   getCurrentUser() {

@@ -22,13 +22,14 @@ nav{
             flex-direction: row;
             width: fit-content;
     
-            a{
+            a, p{
                 text-decoration: none;
                 color: black;
                 padding: 5px 10px;
                 background-color: lightgray;
                 border-radius: 10px;
                 margin-left: 5px;
+                cursor: pointer;
     
                 &:hover{
                     background-color: gray;
