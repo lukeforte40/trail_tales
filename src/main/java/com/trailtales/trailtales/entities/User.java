@@ -1,8 +1,11 @@
 package com.trailtales.trailtales.entities;
 
 import org.springframework.data.annotation.CreatedDate;
+
 import jakarta.persistence.*;
-import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.time.LocalDate;
 
 @Entity
 public class User {
@@ -13,7 +16,7 @@ public class User {
     private String password;
 
     @Column(unique = true, nullable = false)
-    private String email;
+    private String username;
 
     @Column(unique = true, nullable = false)
     private String phone;
@@ -22,15 +25,22 @@ public class User {
 
     @CreatedDate
     @Column(name = "joinDate", updatable = false)
-    private Date joinDate;
+    private LocalDate joinDate;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(  name = "user_roles", 
+            joinColumns = @JoinColumn(name = "user_id"), 
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     protected User() {}
 
-    public User(String email, String password, String phone, String profilePic) {
-        this.email = email;
+    public User(String username, String phone, String profilePic, String password) {
+        this.username = username;
         this.password = password;
         this.phone = phone;
         this.profilePic = profilePic;
+        this.joinDate = LocalDate.now();
     }
 
     public Integer getId() {
@@ -49,12 +59,12 @@ public class User {
         this.password = password;
     }
   
-    public String getEmail() {
-      return email;
+    public String getUsername() {
+      return username;
     }
   
-    public void setEmail(String email) {
-      this.email = email;
+    public void setUsername(String username) {
+      this.username = username;
     }
   
     public String getPhone(){
@@ -73,12 +83,20 @@ public class User {
         this.profilePic = profilePic;
     }
 
-    public Date getJoinDate(){
+    public LocalDate getJoinDate(){
         return joinDate;
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + this.id + ", email='" + this.email + '\'' + ", phone='" + this.phone + '\'' + '}';
+        return "User{" + "id=" + this.id + ", username='" + this.username + '\'' + ", phone='" + this.phone + '\'' + '}';
+    }
+
+    public void setRoles(Set<Role> role){
+        this.roles = role;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 }

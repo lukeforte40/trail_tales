@@ -8,8 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.trailtales.trailtales.entities.Role;
 import com.trailtales.trailtales.entities.User;
+import com.trailtales.trailtales.repositories.RoleRepository;
 import com.trailtales.trailtales.repositories.user_repo;
+import com.trailtales.trailtales.entities.enums.*;
 
 @Configuration
 class LoadDatabase {
@@ -20,10 +23,12 @@ class LoadDatabase {
   private PasswordEncoder passwordEncoder;
 
   @Bean
-  CommandLineRunner initDatabase(user_repo repository) {
+  CommandLineRunner initDatabase(user_repo repository, RoleRepository role_repo) {
 
     return args -> {
-      log.info("Preloading " + repository.save(new User("admin", passwordEncoder.encode("password") , "1111111111", "null")));
+      log.info("Preloading" + role_repo.save(new Role(ERole.ROLE_USER)));
+      log.info("Preloading" + role_repo.save(new Role(ERole.ROLE_ADMIN)));
+      log.info("Preloading " + repository.save(new User("admin", "1111111111", "null", passwordEncoder.encode("password"))));
     };
   }
 }
