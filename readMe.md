@@ -14,6 +14,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * Pricing for travel plan (ai-assist)
 * Add User Accounts
 
+
 **To-Do**
 * (Done) Determine the tech stack I want to use
 * Login/Sign-up and user accounts
@@ -21,6 +22,8 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * Design the following pages & components:
     * Landing page
     * Nav component
+    * login
+    * signup
 * Pick site colors
 * (Done) Animate hamburger rotate
 * (Done) set up user table
@@ -28,10 +31,16 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * set up profile pic upload
 * externalize application.properties
 * add default profile picture, to signup.
-* fix signup backend
+* (done) fix signup backend
+* error handling login/signup
+* login on signup
+* recaptcha
+* sign up with google
+* set nav to reflect login status
+* set up profile menus and settings page
 
 **Tech Stack**
-* Java (springboot)
+* Java (spring boot)
 * Maven
 * Mysql
 * React
