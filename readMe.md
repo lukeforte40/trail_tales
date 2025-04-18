@@ -17,7 +17,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 
 **To-Do**
 * (Done) Determine the tech stack I want to use
-* Login/Sign-up and user accounts
+* (Done) Login/Sign-up and user accounts
 * Create the travel journal part of the site
 * Design the following pages & components:
     * Landing page
@@ -33,12 +33,14 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * add default profile picture, to signup.
 * (Done) fix signup backend
 * error handling login/signup
+* add form validation
 * (Done) login on signup
-* recaptcha
+* (Done) recaptcha
 * sign up with google
 * (Done) set nav to reflect login status
 * (Done) set user to context in parent of nav to pass across site
 * set up profile menus and settings page
+* pick background image for login/signup
 
 **Tech Stack**
 * Java (spring boot)

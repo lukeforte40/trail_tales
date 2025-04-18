@@ -1,0 +1,43 @@
+#backgroundImage{
+    
+
+    #loginContainer{
+        border: 2px solid black;
+        margin: 15% auto;
+        width: fit-content;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 20px;
+    
+        #error{
+            color: red;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        form{
+            label{
+                margin-right: 5px;
+                font-size: 1.05em;
+            }
+            input{
+                margin-right: 10px;
+            }
+            #recaptcha{
+                margin: 20px auto;
+                width: fit-content;
+            }
+            button{
+                padding: 10px 20px;
+                border-radius: 10px;
+                margin: auto;
+                display: block;
+                cursor: pointer;
+                background-color: lightgray;
+    
+                &:hover{
+                    background-color: grey;
+                }
+            }    
+        }
+    }
+}
