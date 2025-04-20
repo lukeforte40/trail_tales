@@ -33,6 +33,9 @@ export default function Signup(){
             const userData = await authService.register(email, phone, picture === undefined ? "null" : picture.name, password);
             setUser(userData);        
             navigate('/')
+        }        
+        else if(phone === '' || phone.length !== 11){
+            setError("Please add your full phone number.");
         }
         else if (email !== '' && password !== '' && phone !== ''){
             setError("Please complete the Recaptcha.");
@@ -53,7 +56,7 @@ export default function Signup(){
                     </div>
                     <div>
                         <label>Password:</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={10} maxLength={30} />
                     </div>
                     <div id={styles.phoneInpContainer}>
                         <label>Phone:</label>
@@ -61,6 +64,8 @@ export default function Signup(){
                         country={'us'}
                         value={phone}
                         onChange={setPhone}
+                        inputProps={{
+                        }}
                         />
                     </div>
                     <div>

@@ -23,6 +23,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
     * Landing page
     * Nav component
     * (Done) login
+    * reset password
     * (Done) signup
 * Pick site colors
 * (Done) Animate hamburger rotate
@@ -32,8 +33,8 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * externalize application.properties
 * add default profile picture, to signup.
 * (Done) fix signup backend
-* error handling login/signup
-* add form validation
+* (Done) error handling login/signup
+* (Done) add form validation
 * (Done) login on signup
 * (Done) recaptcha
 * sign up with google
@@ -41,6 +42,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) set user to context in parent of nav to pass across site
 * set up profile menus and settings page
 * (Done) pick background image for login/signup
+* reset password
 
 **Tech Stack**
 * Java (spring boot)
