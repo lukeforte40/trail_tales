@@ -22,8 +22,8 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * Design the following pages & components:
     * Landing page
     * Nav component
-    * login
-    * signup
+    * (Done) login
+    * (Done) signup
 * Pick site colors
 * (Done) Animate hamburger rotate
 * (Done) set up user table
@@ -40,7 +40,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) set nav to reflect login status
 * (Done) set user to context in parent of nav to pass across site
 * set up profile menus and settings page
-* pick background image for login/signup
+* (Done) pick background image for login/signup
 
 **Tech Stack**
 * Java (spring boot)

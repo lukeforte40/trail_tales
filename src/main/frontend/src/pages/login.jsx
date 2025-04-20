@@ -45,7 +45,8 @@ export default function Login(){
     return(
         <div id={styles.backgroundImage}>
             <div id={styles.loginContainer}>
-                <p id={styles.error}>{error}</p>
+                <h1>Log in</h1>
+                {error !== null && <p id={styles.error}>{error}</p>}
                 <form onSubmit={e => e.preventDefault()}>
                     <label>Email:</label>
                     <input type="email" onChange={(e) => setUsername(e.target.value)} required/>
