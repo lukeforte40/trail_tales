@@ -40,7 +40,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) add form validation
 * (Done) login on signup
 * (Done) recaptcha
-* sign up with google
+* sign up/ log in with google
 * (Done) set nav to reflect login status
 * (Done) set user to context in parent of nav to pass across site
 * set up profile menus and settings page

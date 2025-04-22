@@ -11,6 +11,7 @@ import 'react-phone-input-2/lib/style.css';
 export default function Signup(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confPassword, setConfPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [picture, setPicture] = useState(undefined);
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function Signup(){
         setLoading(true);
         document.getElementById('submitButton').disabled = true;
         // if form has all necessary inputs
-        if (recaptcha.current.getValue() !== "" && email !== '' && password !== '' && phone !== '') {
+        if (recaptcha.current.getValue() !== "" && email !== '' && password !== '' && phone !== '' &&  password === confPassword) {
             let imgResponse;
             // if there is an image upload it
             if (picture !== undefined) {
@@ -48,8 +49,12 @@ export default function Signup(){
                 setError(error.response.data.message)
             }
         }        
+        // if the passwords don't match
+        else if(recaptcha.current.getValue() !== "" && email !== '' && password !== '' && phone !== '' && password !== confPassword){
+            setError("Error: Passwords Don't match!")
+        }
         // if phone number is empty or not fully filled in
-        else if(phone === '' || phone.length !== 11){
+        else if(email !== '' && password !== '' && (phone === '' || phone.length !== 11)){
             setError("Please add your full phone number.");
         }
         // if the the recaptcha is not done but everything else is
@@ -73,6 +78,10 @@ export default function Signup(){
                     <div>
                         <label>Password:</label>
                         <input type="password" className={styles.formInp} value={password} onChange={(e) => setPassword(e.target.value)} required minLength={10} maxLength={30} />
+                    </div>
+                    <div>
+                        <label>Confirm Password:</label>
+                        <input type="password" className={styles.formInp} value={confPassword} onChange={(e) => setConfPassword(e.target.value)} required minLength={10} maxLength={30} />
                     </div>
                     <div id={styles.phoneInpContainer}>
                         <label>Phone:</label>
