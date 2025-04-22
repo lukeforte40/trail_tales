@@ -52,11 +52,11 @@ export default function Signup(){
                 <form onSubmit={e => e.preventDefault()}>
                     <div>
                         <label>Email:</label>
-                        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                        <input type="email" className={styles.formInp} value={email} onChange={(e) => setEmail(e.target.value)} required/>
                     </div>
                     <div>
                         <label>Password:</label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={10} maxLength={30} />
+                        <input type="password" className={styles.formInp} value={password} onChange={(e) => setPassword(e.target.value)} required minLength={10} maxLength={30} />
                     </div>
                     <div id={styles.phoneInpContainer}>
                         <label>Phone:</label>

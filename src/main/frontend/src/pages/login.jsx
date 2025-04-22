@@ -49,9 +49,9 @@ export default function Login(){
                 {error !== null && <p id={styles.error}>{error}</p>}
                 <form onSubmit={e => e.preventDefault()}>
                     <label>Email:</label>
-                    <input type="email" onChange={(e) => setUsername(e.target.value)} required/>
+                    <input type="email" className={styles.formInp} onChange={(e) => setUsername(e.target.value)} required/>
                     <label>Password:</label>
-                    <input type="password" onChange={(e) => setPassword(e.target.value)} required/>
+                    <input type="password" className={styles.formInp} onChange={(e) => setPassword(e.target.value)} required/>
                     <ReCAPTCHA
                         id={styles.recaptcha}
                         ref={recaptcha}
