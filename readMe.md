@@ -35,7 +35,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) add default profile picture, to signup.
 * (Done) fix signup backend
 * (Done) error handling login/signup
-* make signup error handling more specific
+* (Done) make signup error handling more specific
 * add password confirm
 * (Done) add form validation
 * (Done) login on signup

@@ -32,7 +32,7 @@ class LoadDatabase {
       Role admin = new Role(ERole.ROLE_ADMIN);
       log.info("Preloading" + role_repo.save(new Role(ERole.ROLE_USER)));
       log.info("Preloading" + role_repo.save(admin));
-      User userInf = new User("admin@gmail.com", "1111111111", "default.png", passwordEncoder.encode("password"));
+      User userInf = new User("admin@gmail.com", "11111111111", "default.png", passwordEncoder.encode("password"));
       Set<Role> tempSet = new HashSet<Role>();
       tempSet.add(admin);
       userInf.setRoles(tempSet);

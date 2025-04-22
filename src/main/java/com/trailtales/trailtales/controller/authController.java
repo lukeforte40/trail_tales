@@ -55,12 +55,19 @@ public class authController {
     
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+        // check if username is taken
         if (repo.existsByUsername(signUpRequest.getUsername())) {
         return ResponseEntity
             .badRequest()
             .body(new MessageResponse("Error: Username is already taken!"));
         }
-
+        // check if phone number is taken
+        if (repo.existsByPhone(signUpRequest.getPhone())) {
+            return ResponseEntity
+                .badRequest()
+                .body(new MessageResponse("Error: Phone Number is already taken!"));
+            }
+    
         // Create new user's account
         User user = new User(signUpRequest.getUsername(), signUpRequest.getPhone(), signUpRequest.getProfilePic(), 
         passwordEncoder.encode(signUpRequest.getPassword()));

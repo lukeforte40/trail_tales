@@ -38,10 +38,15 @@ export default function Signup(){
             if (picture !== undefined) {
                 formData.append("image", picture)
                 imgResponse = await uploadService.Image(formData);
-            }               
-            const userData = await authService.register(email, phone, picture === undefined ? "default.png" : imgResponse, password);
-            setUser(userData);  
-            navigate('/')
+            }       
+            try{
+                const userData = await authService.register(email, phone, picture === undefined ? "default.png" : imgResponse, password);
+                setUser(userData);  
+                navigate('/');
+            }
+            catch(error){
+                setError(error.response.data.message)
+            }
         }        
         // if phone number is empty or not fully filled in
         else if(phone === '' || phone.length !== 11){
