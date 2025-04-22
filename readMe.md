@@ -29,11 +29,14 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) Animate hamburger rotate
 * (Done) set up user table
 * (Done) set up password hashing
-* set up profile pic upload
+* (Done) set up profile pic upload
+* (Done) add uuid to each photo on upload
 * externalize application.properties
-* add default profile picture, to signup.
+* (Done) add default profile picture, to signup.
 * (Done) fix signup backend
 * (Done) error handling login/signup
+* make signup error handling more specific
+* add password confirm
 * (Done) add form validation
 * (Done) login on signup
 * (Done) recaptcha

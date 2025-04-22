@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import authService from "../services/auth.service";
+import uploadService from "../services/upload-service";
 import { useNavigate } from 'react-router-dom';
 import { userContext } from '../main';
 import ReCAPTCHA from "react-google-recaptcha";
@@ -17,6 +18,7 @@ export default function Signup(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const recaptcha = useRef(null);
+    const formData = new FormData();
 
     // reset error after a certain amount of time
 
@@ -29,14 +31,23 @@ export default function Signup(){
     const handleSubmit = async () =>{
         setLoading(true);
         document.getElementById('submitButton').disabled = true;
+        // if form has all necessary inputs
         if (recaptcha.current.getValue() !== "" && email !== '' && password !== '' && phone !== '') {
-            const userData = await authService.register(email, phone, picture === undefined ? "null" : picture.name, password);
-            setUser(userData);        
+            let imgResponse;
+            // if there is an image upload it
+            if (picture !== undefined) {
+                formData.append("image", picture)
+                imgResponse = await uploadService.Image(formData);
+            }               
+            const userData = await authService.register(email, phone, picture === undefined ? "default.png" : imgResponse, password);
+            setUser(userData);  
             navigate('/')
         }        
+        // if phone number is empty or not fully filled in
         else if(phone === '' || phone.length !== 11){
             setError("Please add your full phone number.");
         }
+        // if the the recaptcha is not done but everything else is
         else if (email !== '' && password !== '' && phone !== ''){
             setError("Please complete the Recaptcha.");
         }
@@ -70,7 +81,7 @@ export default function Signup(){
                     </div>
                     <div>
                         <label>Profile Picture:</label>
-                        <input id={styles.profPicInput} type="file" value={picture} onChange={(e) => setPicture(e.target.files[0])}/>
+                        <input id={styles.profPicInput} accept="image/*" type="file" onChange={(e) => setPicture(e.target.files[0])}/>
                     </div>
                     <ReCAPTCHA
                             id={styles.recaptcha}

@@ -41,4 +41,7 @@ class AuthService {
   }
 }
 
-export default new AuthService();
+const authInstance = new AuthService();
+
+
+export default authInstance;
