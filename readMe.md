@@ -36,7 +36,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) fix signup backend
 * (Done) error handling login/signup
 * (Done) make signup error handling more specific
-* add password confirm
+* (Done) add password confirm
 * (Done) add form validation
 * (Done) login on signup
 * (Done) recaptcha
