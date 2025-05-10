@@ -29,10 +29,10 @@ public class TripController {
     @Autowired
     private tripRepo repo;
 
-    @PostMapping("/startTrip")
-    public ResponseEntity<?> startTrip(@Valid @RequestBody TripRequest request) {
-        Trip trip = new Trip(request.getTitle(), request.getCreator(), request.getStartDate(),request.getEndDate());
+    //@PostMapping("/startTrip")
+    //public ResponseEntity<?> startTrip(@Valid @RequestBody TripRequest request) {
+        // Trip trip = new Trip(request.getTitle(), request.getCreator(), request.getStartDate(),request.getEndDate());
 
-    }
+    //}
 
 }
