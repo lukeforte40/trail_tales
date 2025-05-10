@@ -1,0 +1,34 @@
+#journalContainers{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../../static/sitePhotos/blackCanyon.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-size: conver;
+    background-position: bottom;
+    padding: 40px 0;
+
+    #TripTitle{
+        background-color: rgba(254, 254, 254, 0.081);
+        backdrop-filter: blur(4px);
+        width: fit-content;
+        margin: 10px auto;
+        padding:5px 10px;
+        border-radius: 10px;
+    }
+
+    .tripsContainer{
+
+        .tripContainer{
+            background-color: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            width: fit-content;
+            margin: 5px;
+            cursor: pointer;
+            
+        }
+    }
+}

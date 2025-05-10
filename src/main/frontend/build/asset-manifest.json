@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.97d17872.css",
-    "main.js": "/static/js/main.6cb9cc15.js",
+    "main.css": "/static/css/main.1d1294a3.css",
+    "main.js": "/static/js/main.a053ab2c.js",
     "static/js/453.8ab44547.chunk.js": "/static/js/453.8ab44547.chunk.js",
+    "static/media/blackCanyon.png": "/static/media/blackCanyon.053f5d2d1ac602d02ddb.png",
     "static/media/IMG_2390.JPG": "/static/media/IMG_2390.d33a7ecf99b45c5a6e1a.JPG",
     "static/media/IMG_2517.JPG": "/static/media/IMG_2517.65b7959079515b5e3e5f.JPG",
     "index.html": "/index.html",
-    "main.97d17872.css.map": "/static/css/main.97d17872.css.map",
-    "main.6cb9cc15.js.map": "/static/js/main.6cb9cc15.js.map",
+    "main.1d1294a3.css.map": "/static/css/main.1d1294a3.css.map",
+    "main.a053ab2c.js.map": "/static/js/main.a053ab2c.js.map",
     "453.8ab44547.chunk.js.map": "/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97d17872.css",
-    "static/js/main.6cb9cc15.js"
+    "static/css/main.1d1294a3.css",
+    "static/js/main.a053ab2c.js"
   ]
 }

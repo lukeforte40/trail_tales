@@ -1,5 +1,8 @@
 HELP.md
 !.mvn/wrapper/maven-wrapper.jar
+node_modules
+src/main/frontend/build/
+target/
 
 ### STS ###
 .apt_generated
@@ -26,3 +29,4 @@ HELP.md
 ### VS Code ###
 .vscode/
 src/main/frontend/node_modules/
+src/main/frontend/build/asset-manifest.json
