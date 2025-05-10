@@ -1,5 +1,5 @@
 import styles from "../styles/pages/myTravelJournal.module.scss"
-import { FaPlus } from "react-icons/fa6";
+import { GoPlus } from "react-icons/go";
 
 export default function Jorunal(){
     return(
@@ -7,7 +7,7 @@ export default function Jorunal(){
             <h1 id={styles.TripTitle}>Your Trips</h1>
             <div className={styles.tripsContainer}>
                 <div className={styles.tripContainer}>
-                    <p><FaPlus id={styles.plus}/></p>
+                    <GoPlus id={styles.plus}/>
                 </div>
             </div>
         </div>
