@@ -1,0 +1,36 @@
+#TripTitle{
+    background-color: rgba(128, 128, 128, 0.222);
+    backdrop-filter: blur(4px);
+    width: fit-content;
+    margin: auto auto 10px auto;
+    padding:5px 10px;
+    border-radius: 10px;
+}
+
+.tripsContainer{
+    width: 70%;
+    margin: auto;
+
+    #toolTip{
+        background-color: gray;
+        border-radius: 10px;
+        font-size: 1.25em;
+    }
+
+    .tripContainer{
+        background-color: rgba(255, 255, 255, 0.392);
+        width: 120px;
+        height: 175px;
+        border-radius: 10px;
+        margin: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        backdrop-filter: blur(4px);
+
+        #plus{
+            font-size: 2em;
+        }
+    }
+}
