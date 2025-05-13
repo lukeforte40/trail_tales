@@ -41,7 +41,7 @@ export default function Nav() {
             <div id={styles.lowerNav}>
                 <RxHamburgerMenu className={styles.hamburger} id="hamburger" onClick={handleHamburgerClick}/>
                 <div className={styles.navLinks} id="navLinks">
-                    {location.pathname !== "/travelJournal" && <NavLink to="/travelJournal">My Travel Journal</NavLink>}
+                    {location.pathname !== "/travelJournal" && user !== undefined && <NavLink to="/travelJournal">My Travel Journal</NavLink>}
                 </div>
             </div>
         </nav>
