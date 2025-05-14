@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Getter @Setter
-public class TripRequest {
+public class MakeTripRequest {
     @NotBlank
     private String title;
 

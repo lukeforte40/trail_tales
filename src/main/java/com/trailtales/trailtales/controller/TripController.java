@@ -1,5 +1,7 @@
 package com.trailtales.trailtales.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,10 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.trailtales.trailtales.entities.Trip;
 import com.trailtales.trailtales.entities.User;
-import com.trailtales.trailtales.payloads.requests.TripRequest;
+import com.trailtales.trailtales.payloads.requests.MakeTripRequest;
+import com.trailtales.trailtales.payloads.requests.GetTripRequest;
 import com.trailtales.trailtales.repositories.user_repo;
+import com.trailtales.trailtales.repositories.tripRepo;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/trip")
@@ -23,12 +28,27 @@ public class TripController {
     @Autowired
     private user_repo user_repo;
 
+    @Autowired
+    private tripRepo trip_repo;
+
     @PostMapping("/startTrip")
-    public ResponseEntity<?> startTrip(@Valid @RequestBody TripRequest request) {
+    public ResponseEntity<?> startTrip(@Valid @RequestBody MakeTripRequest request) {
         User user = user_repo.findById(request.getCreatorId())
             .orElseThrow(() -> new RuntimeException("Error: User is not found."));
         Trip trip = new Trip(request.getTitle(), request.getDescription(), user , request.getStartDate(),request.getEndDate());
         return ResponseEntity.ok(trip);
     }
 
+    @GetMapping("/trips")
+    public ResponseEntity<?> getTrips() {
+        List<Trip> trips = trip_repo.findAll();
+        return ResponseEntity.ok(trips);
+    }
+    
+    @GetMapping("/userTrip")
+    public ResponseEntity<?> getMethodName(@Valid @RequestBody GetTripRequest request) {
+        List<Trip> trips = trip_repo.findAllById(request.getId())
+        .orElseThrow(() -> new RuntimeException("Error: Trips not found."));
+        return ResponseEntity.ok(trips);
+    }
 }
