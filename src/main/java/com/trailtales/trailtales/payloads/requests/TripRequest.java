@@ -1,8 +1,6 @@
 package com.trailtales.trailtales.payloads.requests;
 import java.time.LocalDate;
 
-import com.trailtales.trailtales.entities.User;
-
 import jakarta.validation.constraints.*;
 import lombok.*;
 
@@ -14,7 +12,7 @@ public class TripRequest {
     private String description;
     
     @NotBlank
-    private User creator;
+    private Integer creatorId;
 
     @NotBlank
     private LocalDate endDate;
