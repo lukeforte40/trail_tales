@@ -35,7 +35,7 @@ public class TripController {
     public ResponseEntity<?> startTrip(@Valid @RequestBody MakeTripRequest request) {
         User user = user_repo.findById(request.getCreatorId())
             .orElseThrow(() -> new RuntimeException("Error: User is not found."));
-        Trip trip = new Trip(request.getTitle(), request.getDescription(), user , request.getStartDate(),request.getEndDate());
+        Trip trip = new Trip(request.getTitle(), request.getDescription(), user , request.getStartDate(),request.getEndDate(), request.getTripImage());
         return ResponseEntity.ok(trip);
     }
 

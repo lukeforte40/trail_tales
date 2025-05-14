@@ -19,4 +19,6 @@ public class MakeTripRequest {
 
     @NotBlank
     private LocalDate startDate;
+
+    private String tripImage;
 }

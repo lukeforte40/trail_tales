@@ -25,6 +25,8 @@ public class Trip {
 
     private String description;
 
+    private String TripImage;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User creator;
@@ -37,11 +39,12 @@ public class Trip {
 
     private LocalDate startDate;
 
-    public Trip(String title, String description, User creator, LocalDate startDate, LocalDate endDate) {
+    public Trip(String title, String description, User creator, LocalDate startDate, LocalDate endDate, String tripImage) {
         this.title = title;
         this.description = description;
         this.creator = creator;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.TripImage = tripImage;
     }
 }
