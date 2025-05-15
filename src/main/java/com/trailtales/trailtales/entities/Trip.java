@@ -27,7 +27,7 @@ public class Trip {
 
     private String TripImage;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User creator;
 

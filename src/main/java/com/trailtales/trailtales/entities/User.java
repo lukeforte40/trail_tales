@@ -2,6 +2,8 @@ package com.trailtales.trailtales.entities;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +15,7 @@ public class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     
+    @JsonIgnore
     private String password;
 
     @Column(unique = true, nullable = false)

@@ -30,3 +30,4 @@ target/
 .vscode/
 src/main/frontend/node_modules/
 src/main/frontend/build/asset-manifest.json
+src/main/resources/static/upload/
