@@ -2,8 +2,6 @@ package com.trailtales.trailtales.entities;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,7 +29,6 @@ public class Trip {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User creator;
 
-    @CreatedDate
     @Column(name = "creationDate", updatable = false)
     private LocalDate creationDate;
 
@@ -46,5 +43,6 @@ public class Trip {
         this.startDate = startDate;
         this.endDate = endDate;
         this.TripImage = tripImage;
+        this.creationDate = LocalDate.now();
     }
 }
