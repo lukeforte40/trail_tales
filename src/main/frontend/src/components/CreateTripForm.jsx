@@ -32,16 +32,15 @@ export default function CreateTripForm(){
 
         // upload img
         formData.append("image", picture);
-        const imgResponse = await uploadService.Image(formData);        
-
-        console.log(title, description, user.id, startDate, endDate, imgResponse);
+        const imgResponse = await uploadService.Image(formData);                
 
         // create trip
         try {
             const trip = await tripService.createTrip(title, description, user.id, startDate, endDate, imgResponse);
+            // TODO: add trip to fetched list once created
             console.log(trip);
-        } catch (error) {
-            console.log(error);
+        } catch {
+            setError("There was an error! Please try again.");
         }
 
         // reset loading and button disable
@@ -51,6 +50,7 @@ export default function CreateTripForm(){
 
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
+            {error !== null && <p id={styles.error}>{error}</p>}
             <input type="text" name="title" id={styles.title} onChange={(e) => setTitle(e.target.value)} required/>
             <input type="text" name="description" id={styles.description} onChange={(e) => setDescription(e.target.value)} required/>
             <input type="date" name="startDate" id="startDate" onChange={(e) => setStartDate(e.target.value)} required/>

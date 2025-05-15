@@ -3,14 +3,14 @@ import axios from 'axios';
 const API_URL = 'http://localhost:8080/api/trip/';
 
 class TripService {
-    async createTrip(title, description, user_id, startDate, endDate, picture){
+    async createTrip(title, description, user_id, startDate, endDate, tripImage){
         return await axios.post(API_URL + "startTrip", {
             title,
             description,
             "creatorId" : user_id,
             startDate,
             endDate,
-            picture
+            tripImage
         })
         .then(response => {
             return response.data;
