@@ -6,7 +6,7 @@ import Nav from "./components/Nav";
 export const userContext = React.createContext(null);
 
 export default function Main() {
-    const [user, setUser] = React.useState();
+    const [user, setUser] = React.useState(null);
 
     return(
         <BrowserRouter>

@@ -46,6 +46,8 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * set up profile menus and settings page
 * (Done) pick background image for login/signup
 * reset password
+* fix login issue where i have to relog after page reload
+* rendering of nav options for logout etc not working properly after this happens
 
 **Tech Stack**
 * Java (spring boot)

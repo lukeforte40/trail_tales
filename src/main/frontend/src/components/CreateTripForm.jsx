@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from '../styles/components/createTripForm.module.scss';
 import tripService from "../services/trip.service";
 import uploadService from "../services/upload-service";
-import { userContext } from '../main';
+import { tripContext } from './TripSelect';
 
-export default function CreateTripForm(){
+export default function CreateTripForm({ user_id }){
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState();
@@ -13,7 +13,7 @@ export default function CreateTripForm(){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const formData = new FormData();
-    const { user } = React.useContext(userContext);
+    const { trip, setTrip } = React.useContext(tripContext);
 
     // reset error after a certain amount of time
 
@@ -36,14 +36,16 @@ export default function CreateTripForm(){
 
         // create trip
         try {
-            const trip = await tripService.createTrip(title, description, user.id, startDate, endDate, imgResponse);
-            // TODO: add trip to fetched list once created
-            console.log(trip);
+            const trip = await tripService.createTrip(title, description, user_id, startDate, endDate, imgResponse);
+            let tripData = [...trip];
+            tripData.push(trip);
+            setTrip(tripData);
         } catch {
             setError("There was an error! Please try again.");
         }
 
-        // reset loading and button disable
+        // reset loading, button disable, close form and reset values
+        
         setLoading(false);
         document.getElementById('submitButton').disabled = false;
     }
@@ -56,7 +58,7 @@ export default function CreateTripForm(){
             <input type="date" name="startDate" id="startDate" onChange={(e) => setStartDate(e.target.value)} required/>
             <input type="date" name="endDate" id="endDate" onChange={(e) => setEndDate(e.target.value)} required/>
             <input id={styles.picInput} accept="image/*" type="file" onChange={(e) => setPicture(e.target.files[0])} required/>
-            <button id="submitButton" className={styles.submitButton} type="submit">Create Trip</button>
+            <button id="submitButton" className={styles.submitButton} type="submit">{loading ? "Loading..." : "Create Trip"}</button>
         </form>
     )
 }

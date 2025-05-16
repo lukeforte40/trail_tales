@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.trailtales.trailtales.entities.Trip;
@@ -47,8 +48,8 @@ public class TripController {
     }
     
     @GetMapping("/userTrip")
-    public ResponseEntity<?> getMethodName(@Valid @RequestBody GetTripRequest request) {
-        List<Trip> trips = trip_repo.findAllById(request.getId())
+    public ResponseEntity<?> getMethodName(@Valid @RequestParam Integer Id) {
+        List<Trip> trips = trip_repo.findAllById(Id)
         .orElseThrow(() -> new RuntimeException("Error: Trips not found."));
         return ResponseEntity.ok(trips);
     }

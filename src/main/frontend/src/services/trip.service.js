@@ -26,7 +26,7 @@ class TripService {
 
     async getUserTrips(user_id){
         return await axios.get(API_URL + "userTrip", {
-            user_id
+            params: {"Id" : user_id}
         })
         .then(response => {
             return response.data;
