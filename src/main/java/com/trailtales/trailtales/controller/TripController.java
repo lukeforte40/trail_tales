@@ -49,7 +49,7 @@ public class TripController {
     
     @GetMapping("/userTrip")
     public ResponseEntity<?> getMethodName(@Valid @RequestParam Integer Id) {
-        List<Trip> trips = trip_repo.findAllById(Id)
+        List<Trip> trips = trip_repo.findAllByCreatorId(Id)
         .orElseThrow(() -> new RuntimeException("Error: Trips not found."));
         return ResponseEntity.ok(trips);
     }

@@ -10,5 +10,5 @@ import com.trailtales.trailtales.entities.Trip;
 
 @Repository
 public interface tripRepo  extends JpaRepository<Trip, Integer>{
-    Optional<List<Trip>> findAllById(Integer id);
+    Optional<List<Trip>> findAllByCreatorId(Integer id);
 }
