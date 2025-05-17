@@ -35,24 +35,18 @@ export default function TripSelect(){
 
     // Render trip list
     const TripList = trips.map((trip) =>(
-        <>
-            <Tooltip anchorSelect={"#" + trip.id} place="top" className={styles.toolTip}>
-                {trip.Title}
-            </Tooltip>
-            <a className={styles.tripContainer} key={trip.id} id={trip.id}>
+        <div key={trip.id}>
+            <a className={styles.tripContainer} data-tooltip-id="tripTip" data-tooltip-content={trip.title}>
                 <img src={require("../../../resources/static/upload/" + trip.tripImage)} alt={trip.title} className={styles.tripImg}/>
             </a>
-        </>
+        </div>
     ))
 
     return(
         <>
             <h1 id={styles.TripTitle}>Your Trips</h1>
             <div className={styles.tripsContainer}>
-                <Tooltip anchorSelect="#startTrip" place="top" className={styles.toolTip}>
-                    Create a new trip
-                </Tooltip>
-                <a className={styles.tripContainer} id="startTrip" onClick={() => setCreateOpen(!createOpen)}>
+                <a className={styles.tripContainer} data-tooltip-content="Create a new trip!" data-tooltip-id="tripTip" onClick={() => setCreateOpen(!createOpen)}>
                     <GoPlus id={styles.plus}/>
                 </a>
                 {trips !== null ? TripList : <p>No trips created! Start one now!</p>}
@@ -60,6 +54,11 @@ export default function TripSelect(){
             <tripContext.Provider value={{ trips, setTrips }}>
                 {createOpen && <CreateTripForm user_id={user.id} />}
             </tripContext.Provider>
+            <Tooltip place="top" id="tripTip" style={{
+            backgroundColor: 'gray',
+            borderRadius: '10px',
+            fontSize: '1.25em'
+            }}/>
         </>
     )
 }

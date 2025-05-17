@@ -14,12 +14,6 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
-    .toolTip{
-        background-color: gray;
-        border-radius: 10px;
-        font-size: 1.25em;
-    }
-
     .tripContainer{
         background-color: rgba(255, 255, 255, 0.392);
         width: 120px;

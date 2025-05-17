@@ -37,10 +37,8 @@ export default function CreateTripForm({ user_id }){
         // create trip
         try {
             const trip = await tripService.createTrip(title, description, user_id, startDate, endDate, imgResponse);
-            console.log(trip);
             let tripData = [...trips];
             tripData.push(trip);
-            console.log(tripData);
             setTrips(tripData);
         } catch {
             setError("There was an error! Please try again.");
