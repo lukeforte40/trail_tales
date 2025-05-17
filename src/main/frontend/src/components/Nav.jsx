@@ -25,7 +25,7 @@ export default function Nav() {
     // handle logout
     const handleLogout = () => {
         authService.logout()
-        setUser(undefined);
+        setUser(null);
     }
     
     return(
@@ -33,15 +33,15 @@ export default function Nav() {
             <div id={styles.upperNav}>
                 <NavLink id={styles.logo} to="/">Trail Tales</NavLink>
                 <div id={styles.loginSignupContainer}>
-                    {user === undefined && location.pathname !== "/login" && <NavLink to="/login">Login</NavLink>}
-                    {user === undefined && location.pathname !== "/signup" && <NavLink to="/signup">Sign Up</NavLink>}
-                    {user !== undefined && <p onClick={() => handleLogout()}>Logout</p>}
+                    {user === null && location.pathname !== "/login" && <NavLink to="/login">Login</NavLink>}
+                    {user === null && location.pathname !== "/signup" && <NavLink to="/signup">Sign Up</NavLink>}
+                    {user !== null && <p onClick={() => handleLogout()}>Logout</p>}
                 </div>
             </div>
             <div id={styles.lowerNav}>
                 <RxHamburgerMenu className={styles.hamburger} id="hamburger" onClick={handleHamburgerClick}/>
                 <div className={styles.navLinks} id="navLinks">
-                    {location.pathname !== "/travelJournal" && user !== undefined && <NavLink to="/travelJournal">My Travel Journal</NavLink>}
+                    {location.pathname !== "/travelJournal" && user !== null && <NavLink to="/travelJournal">My Travel Journal</NavLink>}
                 </div>
             </div>
         </nav>

@@ -6,27 +6,30 @@ import React, { useEffect, useState } from "react";
 import tripService from "../services/trip.service";
 import { userContext } from '../main';
 import {  useNavigate } from 'react-router-dom';
+import authService from "../services/auth.service";
 
 export const tripContext = React.createContext(null);
 
 export default function TripSelect(){
     const [createOpen, setCreateOpen] = useState(false);
     const [trips, setTrips] = useState([]);
-    const { user } = React.useContext(userContext);
+    const { user, setUser } = React.useContext(userContext);
     const navigate = useNavigate();
 
     // function to fetch trips from database
     async function fetchTrips(){
-        const data = await tripService.getUserTrips(user.id);
-        setTrips(data);
+        const userData = await authService.getCurrentUser();
+        setUser(userData);
+        if (userData === null) {
+            navigate('/login');
+        }else{
+            const data = await tripService.getUserTrips(userData.id);
+            setTrips(data);
+        }
     }
 
     // Fetch trips from database on load
     useEffect(() => {
-        // if not signed in navigate to login
-        if (user === null) {
-            navigate('/login');
-        }
         fetchTrips();
     },[])
 

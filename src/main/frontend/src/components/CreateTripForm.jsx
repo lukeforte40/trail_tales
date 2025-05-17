@@ -13,7 +13,7 @@ export default function CreateTripForm({ user_id }){
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const formData = new FormData();
-    const { trip, setTrip } = React.useContext(tripContext);
+    const { trips, setTrips } = React.useContext(tripContext);
 
     // reset error after a certain amount of time
 
@@ -37,9 +37,11 @@ export default function CreateTripForm({ user_id }){
         // create trip
         try {
             const trip = await tripService.createTrip(title, description, user_id, startDate, endDate, imgResponse);
-            let tripData = [...trip];
+            console.log(trip);
+            let tripData = [...trips];
             tripData.push(trip);
-            setTrip(tripData);
+            console.log(tripData);
+            setTrips(tripData);
         } catch {
             setError("There was an error! Please try again.");
         }
