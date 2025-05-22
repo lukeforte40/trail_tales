@@ -13,7 +13,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * Trail guide / description like Alltrails for travel
 * Pricing for travel plan (ai-assist)
 * (Done) Add User Accounts
-
+* Calendar view for trips/trip planning
 
 **To-Do**
 * (Done) Determine the tech stack I want to use
@@ -31,8 +31,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) set up password hashing
 * (Done) set up profile pic upload
 * (Done) add uuid to each photo on upload
-* externalize application.properties
-* (Done) add default profile picture, to signup.
+ * (Done) add default profile picture, to signup.
 * (Done) fix signup backend
 * (Done) error handling login/signup
 * (Done) make signup error handling more specific
@@ -48,8 +47,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * reset password
 * (Done) fix login issue where I have to relog after page reload
 * (Done) rendering of nav options for logout etc not working properly after this happens
-* fix page first page load with no login
-* remove application properties from git
+* (Done) fix page first page load with no login
 
 **Tech Stack**
 * Java (spring boot)
