@@ -32,3 +32,5 @@ src/main/frontend/node_modules/
 src/main/frontend/build/asset-manifest.json
 src/main/resources/static/upload/
 */application.properties
+target/classes/application.properties
+src/main/resources/application.properties
