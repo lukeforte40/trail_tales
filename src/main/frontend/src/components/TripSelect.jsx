@@ -50,7 +50,7 @@ export default function TripSelect(){
             document.getElementById(id).style.height = "400px";
             document.getElementById(id).style.position = "absolute";
             document.getElementById(id).style.zIndex = "10";
-            document.getElementById(id).style.gridColumnStart = "1";
+            document.getElementById(id).style.cursor = "default";
             setActiveId(id);
         }
     }
@@ -61,6 +61,7 @@ export default function TripSelect(){
         document.getElementById(id).style.height = "175px";
         document.getElementById(id).style.position = "relative";
         document.getElementById(id).style.zIndex = "1";
+        document.getElementById(id).style.cursor = "pointer";
         setActiveId(null);
     }
 

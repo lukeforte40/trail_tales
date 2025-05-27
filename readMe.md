@@ -48,6 +48,8 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) fix login issue where I have to relog after page reload
 * (Done) rendering of nav options for logout etc not working properly after this happens
 * (Done) fix page first page load with no login
+* add hover help icons to add information to the create form page
+* fix add trip error
 
 **Tech Stack**
 * Java (spring boot)

@@ -53,10 +53,15 @@ export default function CreateTripForm({ user_id }){
     return(
         <form onSubmit={(e) => handleSubmit(e)}>
             {error !== null && <p id={styles.error}>{error}</p>}
+            <label htmlFor="title">Trip Title</label>
             <input type="text" name="title" id={styles.title} onChange={(e) => setTitle(e.target.value)} required/>
+            <label htmlFor="description">Trip Description</label>
             <input type="text" name="description" id={styles.description} onChange={(e) => setDescription(e.target.value)} required/>
+            <label htmlFor="startDate">Trip Start Date</label>
             <input type="date" name="startDate" id="startDate" onChange={(e) => setStartDate(e.target.value)} required/>
+            <label htmlFor="endDate">Trip End Date</label>
             <input type="date" name="endDate" id="endDate" onChange={(e) => setEndDate(e.target.value)} required/>
+            <label htmlFor="picInp">Trip Cover Picture</label>
             <input id={styles.picInput} accept="image/*" type="file" onChange={(e) => setPicture(e.target.files[0])} required/>
             <button id="submitButton" className={styles.submitButton} type="submit">{loading ? "Loading..." : "Create Trip"}</button>
         </form>
