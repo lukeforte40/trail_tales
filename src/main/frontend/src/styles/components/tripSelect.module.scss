@@ -24,3 +24,17 @@
 #plus{
     font-size: 2.5em;
 }
+
+#noTrips{
+    background-color: rgba(255, 255, 255, 0.501);
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-size: 2em;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    margin: auto;
+    grid-row-start: 1;
+}

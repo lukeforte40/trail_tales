@@ -77,7 +77,7 @@ export default function TripSelect(){
                         <CreateTripForm user_id={user.id} />
                     </tripContext.Provider>
                 } activeId={activeId} open={() => handleOpen("createTripForm")} close={() => handleClose("createTripForm")}/>
-                {trips !== null ? TripList : <p>No trips created! Start one now!</p>}
+                {trips.length !== 0 ? TripList : <p id={styles.noTrips}>No trips created! Start one now!</p>}
             </div>
             <Tooltip place="top" id="tripTip" style={{
             backgroundColor: 'gray',

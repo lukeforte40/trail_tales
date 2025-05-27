@@ -50,6 +50,7 @@ This project will serve as a travel journal and Trip planner and recommendation 
 * (Done) fix page first page load with no login
 * add hover help icons to add information to the create form page
 * fix add trip error
+* fix first time login error
 
 **Tech Stack**
 * Java (spring boot)
