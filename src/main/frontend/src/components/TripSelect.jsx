@@ -35,8 +35,8 @@ export default function TripSelect(){
     },[])
 
     // Render trip list
-    const TripList = trips.map((trip) =>(
-        <TripTile id={trip.id} title={trip.title} contentStart={
+    const TripList = trips.map((trip, index) =>(
+        <TripTile tripKey={index} id={trip.id} title={trip.title} contentStart={
             <img src={require("../../../resources/static/upload/" + trip.tripImage)} alt={trip.title} className={styles.tripImg}/>
         } contentClick={
             <p>test</p>
@@ -70,7 +70,7 @@ export default function TripSelect(){
         <>
             <h1 id={styles.TripTitle}>Your Trips</h1>
             <div className={styles.tripsContainer}>
-                <TripTile id={"createTripForm"} title={"Create a new trip!"} contentStart={
+                <TripTile tripKey={-1} id={"createTripForm"} title={"Create a new trip!"} contentStart={
                     <GoPlus id={styles.plus}/>
                 } contentClick={
                     <tripContext.Provider value={{ trips, setTrips }}>
