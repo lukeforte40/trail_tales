@@ -9,6 +9,6 @@ import com.trailtales.trailtales.entities.enums.ERole;
 import com.trailtales.trailtales.entities.Role;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Long> {
+public interface roleRepository extends JpaRepository<Role, Long> {
   Optional<Role> findByName(ERole name);
 }

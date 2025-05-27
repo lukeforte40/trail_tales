@@ -9,7 +9,7 @@ import lombok.*;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class TripEntry {
+public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,7 +35,7 @@ public class TripEntry {
 
     private LocalDate adventureDate;
 
-    public TripEntry(String title, String notes, String picture, Trip trip, double longitude, double latitude, LocalDate adventureDate) {
+    public Excursion(String title, String notes, String picture, Trip trip, double longitude, double latitude, LocalDate adventureDate) {
         this.title = title;
         this.notes = notes;
         this.picture = picture;

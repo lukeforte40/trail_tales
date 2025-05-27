@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.trailtales.trailtales.entities.Excursion;
 import com.trailtales.trailtales.entities.Trip;
 import com.trailtales.trailtales.entities.User;
 import com.trailtales.trailtales.payloads.requests.MakeTripRequest;
 import com.trailtales.trailtales.payloads.requests.GetTripRequest;
 import com.trailtales.trailtales.repositories.user_repo;
+import com.trailtales.trailtales.repositories.excursionRepo;
 import com.trailtales.trailtales.repositories.tripRepo;
 
 import jakarta.validation.Valid;
@@ -31,6 +33,9 @@ public class TripController {
 
     @Autowired
     private tripRepo trip_repo;
+
+    @Autowired
+    private excursionRepo excursion_repo;
 
     @PostMapping("/startTrip")
     public ResponseEntity<?> startTrip(@Valid @RequestBody MakeTripRequest request) {
@@ -52,5 +57,12 @@ public class TripController {
         List<Trip> trips = trip_repo.findAllByCreatorId(Id)
         .orElseThrow(() -> new RuntimeException("Error: Trips not found."));
         return ResponseEntity.ok(trips);
+    }
+
+    @GetMapping("/excursions")
+    public ResponseEntity<?> getExcursionsById(@RequestParam Integer tripId) {
+        List<Excursion> excursions = excursion_repo.findAllByTripId(tripId)
+        .orElseThrow(() -> new RuntimeException("Error: excursion not found."));
+        return ResponseEntity.ok(excursions);
     }
 }

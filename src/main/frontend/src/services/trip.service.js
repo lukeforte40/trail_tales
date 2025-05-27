@@ -32,6 +32,15 @@ class TripService {
             return response.data;
         });
     }
+
+    async getTripExcursions(trip_id){
+        return await axios.get(API_URL + "excursions",{
+            params: {"tripId" : trip_id}
+        })
+        .then(response => {
+            return response.data
+        })
+    }
 }
 
 export default new TripService();

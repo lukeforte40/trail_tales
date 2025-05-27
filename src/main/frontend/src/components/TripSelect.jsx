@@ -16,6 +16,7 @@ export default function TripSelect(){
     const { user, setUser } = React.useContext(userContext);
     const navigate = useNavigate();
     const [activeId, setActiveId] = useState(null);
+    const [excursions, setExcursions] = useState([]);
 
     // function to fetch trips from database
     async function fetchTrips(){
@@ -29,17 +30,36 @@ export default function TripSelect(){
         }
     }
 
+    // function to fetch trip excursions
+    const fetchExcursions = async () =>{
+         const excursionData = await tripService.getTripExcursions(activeId);
+         setExcursions(excursionData);
+    }
+
+    // Effect Hooks
+
     // Fetch trips from database on load
     useEffect(() => {
         fetchTrips();
     },[])
+
+    // fetch Excursions on activeId change
+    useEffect(() => {
+        if (activeId !== null && activeId !== 'createTripForm') {
+            fetchExcursions();
+            console.log(excursions);
+        }
+    },[activeId])
 
     // Render trip list
     const TripList = trips.map((trip, index) =>(
         <TripTile tripKey={index} id={trip.id} title={trip.title} contentStart={
             <img src={require("../../../resources/static/upload/" + trip.tripImage)} alt={trip.title} className={styles.tripImg}/>
         } contentClick={
-            <p>test</p>
+            <div>
+
+                {excursions.length === 0 ? <p>No Excursions! Add one now!</p> : <p>temp</p>}
+            </div>
         }  activeId={activeId} open={() => handleOpen(trip.id)} close={() => handleClose(trip.id)}/>
     ))
 
@@ -64,7 +84,6 @@ export default function TripSelect(){
         document.getElementById(id).style.cursor = "pointer";
         setActiveId(null);
     }
-
 
     return(
         <>

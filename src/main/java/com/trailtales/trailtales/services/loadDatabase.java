@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.trailtales.trailtales.entities.Role;
 import com.trailtales.trailtales.entities.User;
-import com.trailtales.trailtales.repositories.RoleRepository;
+import com.trailtales.trailtales.repositories.roleRepository;
 import com.trailtales.trailtales.repositories.user_repo;
 import com.trailtales.trailtales.entities.enums.*;
 
@@ -26,7 +26,7 @@ class LoadDatabase {
   private PasswordEncoder passwordEncoder;
 
   @Bean
-  CommandLineRunner initDatabase(user_repo repository, RoleRepository role_repo ) {
+  CommandLineRunner initDatabase(user_repo repository, roleRepository role_repo ) {
 
     return args -> {
       Role admin = new Role(ERole.ROLE_ADMIN);

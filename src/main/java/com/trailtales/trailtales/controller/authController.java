@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.trailtales.trailtales.entities.Role;
 import com.trailtales.trailtales.entities.User;
 import com.trailtales.trailtales.entities.enums.ERole;
-import com.trailtales.trailtales.repositories.RoleRepository;
+import com.trailtales.trailtales.repositories.roleRepository;
 import com.trailtales.trailtales.repositories.user_repo;
 import com.trailtales.trailtales.security.JwtUtils;
 import com.trailtales.trailtales.services.UserDetailsImpl;
@@ -48,7 +48,7 @@ public class authController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    RoleRepository roleRepository;
+    roleRepository roleRepository;
 
     @Autowired
     JwtUtils jwtUtils;
