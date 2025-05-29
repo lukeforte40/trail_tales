@@ -15,7 +15,6 @@ import com.trailtales.trailtales.entities.Excursion;
 import com.trailtales.trailtales.entities.Trip;
 import com.trailtales.trailtales.entities.User;
 import com.trailtales.trailtales.payloads.requests.MakeTripRequest;
-import com.trailtales.trailtales.payloads.requests.GetTripRequest;
 import com.trailtales.trailtales.payloads.requests.MakeExcursionRequest;
 import com.trailtales.trailtales.repositories.user_repo;
 import com.trailtales.trailtales.repositories.excursionRepo;
