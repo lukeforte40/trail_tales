@@ -33,6 +33,23 @@ class TripService {
         });
     }
 
+    async createTripExcursion(title, notes, picture, trip_id, longitude, latitude, ExcursionDateStart, ExcursionDateEnd){
+        return await axios.post(API_URL + "startExcursion", {
+            title,
+            notes,
+            picture,
+            trip_id,
+            longitude,
+            latitude,
+            ExcursionDateStart,
+            ExcursionDateEnd
+        })
+        .then(response => {
+            return response.data;
+        });
+
+    }
+
     async getTripExcursions(trip_id){
         return await axios.get(API_URL + "excursions",{
             params: {"tripId" : trip_id}

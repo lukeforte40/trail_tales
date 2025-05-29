@@ -8,6 +8,7 @@ import { userContext } from '../main';
 import {  useNavigate } from 'react-router-dom';
 import authService from "../services/auth.service";
 import TripTile from "./TripTile";
+import CreateExcursionForm from "./CreateExcursionForm";
 
 export const tripContext = React.createContext(null);
 
@@ -46,19 +47,26 @@ export default function TripSelect(){
     // fetch Excursions on activeId change
     useEffect(() => {
         if (activeId !== null && activeId !== 'createTripForm') {
-            fetchExcursions();
-            console.log(excursions);
+            //fetchExcursions();
+            //console.log(excursions);
         }
     },[activeId])
 
     // Render trip list
+    /* FIXME: fix key issue with trip tile render */
     const TripList = trips.map((trip, index) =>(
         <TripTile tripKey={index} id={trip.id} title={trip.title} contentStart={
             <img src={require("../../../resources/static/upload/" + trip.tripImage)} alt={trip.title} className={styles.tripImg}/>
         } contentClick={
             <div>
-
-                {excursions.length === 0 ? <p>No Excursions! Add one now!</p> : <p>temp</p>}
+                {excursions.length === 0 ? <>
+                    <p>No Excursions! Add one now!</p> 
+                    <CreateExcursionForm trip_id={trip.id}/>
+                </> : <>
+                    <CreateExcursionForm trip_id={trip.id}/>
+                    <p>temp</p>
+                </>
+                }
             </div>
         }  activeId={activeId} open={() => handleOpen(trip.id)} close={() => handleClose(trip.id)}/>
     ))

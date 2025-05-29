@@ -23,6 +23,7 @@ export default function CreateTripForm({ user_id }){
     // create trip function
     
     const handleSubmit = async (e) =>{
+        // prevent default form action
         e.preventDefault();
 
         // set submit to loading and disable another click
