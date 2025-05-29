@@ -6,7 +6,6 @@ import { tripContext } from './TripSelect';
 
 export default function CreateTripForm({ user_id }){
     const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
     const [picture, setPicture] = useState(undefined);
@@ -36,7 +35,7 @@ export default function CreateTripForm({ user_id }){
 
         // create trip
         try {
-            const trip = await tripService.createTrip(title, description, user_id, startDate, endDate, imgResponse);
+            const trip = await tripService.createTrip(title, user_id, startDate, endDate, imgResponse);
             let tripData = [...trips];
             tripData.push(trip);
             setTrips(tripData);
@@ -55,8 +54,6 @@ export default function CreateTripForm({ user_id }){
             {error !== null && <p id={styles.error}>{error}</p>}
             <label htmlFor="title">Trip Title</label>
             <input type="text" name="title" id={styles.title} onChange={(e) => setTitle(e.target.value)} required/>
-            <label htmlFor="description">Trip Description</label>
-            <input type="text" name="description" id={styles.description} onChange={(e) => setDescription(e.target.value)} required/>
             <label htmlFor="startDate">Trip Start Date</label>
             <input type="date" name="startDate" id="startDate" onChange={(e) => setStartDate(e.target.value)} required/>
             <label htmlFor="endDate">Trip End Date</label>

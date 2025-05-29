@@ -21,8 +21,6 @@ public class Trip {
 
     private String title;
 
-    private String description;
-
     private String TripImage;
 
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -36,9 +34,8 @@ public class Trip {
 
     private LocalDate startDate;
 
-    public Trip(String title, String description, User creator, LocalDate startDate, LocalDate endDate, String tripImage) {
+    public Trip(String title, User creator, LocalDate startDate, LocalDate endDate, String tripImage) {
         this.title = title;
-        this.description = description;
         this.creator = creator;
         this.startDate = startDate;
         this.endDate = endDate;

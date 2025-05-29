@@ -6,8 +6,6 @@ import lombok.*;
 @Getter @Setter
 public class MakeTripRequest {
     private String title;
-
-    private String description;
     
     private Integer creatorId;
 
