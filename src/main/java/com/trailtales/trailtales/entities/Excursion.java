@@ -33,16 +33,20 @@ public class Excursion {
 
     private double latitude;
 
-    private LocalDate adventureDate;
+    private LocalDate excursionDateStart;
 
-    public Excursion(String title, String notes, String picture, Trip trip, double longitude, double latitude, LocalDate adventureDate) {
+    private LocalDate excursionDateEnd;
+
+    public Excursion(String title, String notes, String picture, Trip trip, double longitude, double latitude, LocalDate excursionDateStart, LocalDate excursionDateEnd) {
         this.title = title;
         this.notes = notes;
         this.picture = picture;
         this.trip = trip;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.adventureDate = adventureDate;
+        this.excursionDateStart = excursionDateStart;
+        this.excursionDateEnd = excursionDateEnd;
+        this.creationDate = LocalDate.now();
     }
   
 }

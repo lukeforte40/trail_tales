@@ -16,6 +16,7 @@ import com.trailtales.trailtales.entities.Trip;
 import com.trailtales.trailtales.entities.User;
 import com.trailtales.trailtales.payloads.requests.MakeTripRequest;
 import com.trailtales.trailtales.payloads.requests.GetTripRequest;
+import com.trailtales.trailtales.payloads.requests.MakeExcursionRequest;
 import com.trailtales.trailtales.repositories.user_repo;
 import com.trailtales.trailtales.repositories.excursionRepo;
 import com.trailtales.trailtales.repositories.tripRepo;
@@ -58,6 +59,16 @@ public class TripController {
         .orElseThrow(() -> new RuntimeException("Error: Trips not found."));
         return ResponseEntity.ok(trips);
     }
+
+    @PostMapping("/startExcursion")
+    public ResponseEntity<?> startExcursion(@Valid @RequestBody MakeExcursionRequest request) {
+        Trip trip = trip_repo.findById(request.getTrip_id())
+        .orElseThrow(() -> new RuntimeException("Error: Trip is not found."));
+        Excursion excursion = new Excursion(request.getTitle(),request.getNotes(),request.getPicture(), trip, request.getLongitude(), request.getLatitude(), request.getExcursionDateStart(), request.getExcursionDateEnd());
+        excursion_repo.save(excursion);
+        return ResponseEntity.ok(excursion);
+    }
+    
 
     @GetMapping("/excursions")
     public ResponseEntity<?> getExcursionsById(@RequestParam Integer tripId) {
